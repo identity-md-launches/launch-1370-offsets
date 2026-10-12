@@ -1,0 +1,32 @@
+{
+  "kind": "custom_token",
+  "token": {
+    "contract": "OffsetsToken",
+    "name": "OFFSETS",
+    "symbol": "OFFSETS",
+    "decimals": 18,
+    "constructorArgs": [],
+    "totalSupply": "1000000000000000000000000000"
+  },
+  "contracts": [
+    {
+      "contract": "OffsetsRegistry",
+      "constructorArgs": [
+        "$requester",
+        "$token"
+      ]
+    }
+  ],
+  "pool": {
+    "pairedCurrency": "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
+    "fee": 12500,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "economics": {
+    "poolBps": 8800,
+    "initialMarketCapWei": "2500000000000000000000",
+    "remainderTo": "0x556bbff02ea3b61431e2d80e4845a90db4526352"
+  },
+  "notes": "OffsetsToken is a plain ERC-20 with 18 decimals and a fixed supply of 1,000,000,000 OFFSETS minted once to the deployer in its constructor. It has no owner, subsequent minting, transfer fee, pause, or blocklist. OffsetsRegistry is owned by $requester and uses the launched token for voluntary regenerative contributions. The owner or an authorized recorder posts public job references and work measures; the registry estimates footprint using the configured factor and attributes it to NFT seats. Records can be voided, and seat and network totals track footprint and funding. Current seat holders can approve and fund contributions sent directly to the configured beneficiary. Before use, the owner must configure the seat NFT, beneficiary, footprint factor, and contribution rate; a separate recorder is optional. These settings are not supplied by this manifest. Estimates depend on submitted measures and owner-set rates and do not verify environmental outcomes. The registry receives no launch allocation. pool.initialPrice records provenance; the deployer derives the opening price from economics.initialMarketCapWei and token.totalSupply."
+}
